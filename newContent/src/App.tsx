@@ -1,10 +1,12 @@
 import "./App.css";
-import Navbar from "./Navbar.tsx"; // Wir importieren die Navbar
+import Navbar from "./Navbar.tsx"; // Wir importieren die Navbar Komponente aus der Navbar.tsx Datei.
+// 1. hier erstellen wir den Bauplan für unsere Aufgaben.
 interface Ilp {
   id: number;
   aufgabe: string;
 }
 
+//2. Hier kommen die echten Daten (Objekte in einem Array(Ilp[])), die wir später in der App anzeigen wollen.
 const aufgaben: Ilp[] = [
   { id: 1, aufgabe: "React Grundlagen" },
   { id: 2, aufgabe: "State und Props" },
@@ -12,6 +14,7 @@ const aufgaben: Ilp[] = [
   { id: 4, aufgabe: "Styling mit Tailwind CSS" },
 ];
 
+// 3. 
 function AufgabenCard({ id, aufgabe }: Ilp) {
   return (
     <div
@@ -30,6 +33,8 @@ function AufgabenCard({ id, aufgabe }: Ilp) {
     </div>
   );
 }
+
+
 
 function App() {
   return (
