@@ -3,14 +3,20 @@ import { Button } from '../buttons/button.default';
 import { DisplayButton } from '../../displays/display.default';
 
 const userList = [
-   "Fabregas",
-   "Xavi",
-   "Alonso",
-   "Lopes",
-   "Fernades",
-   "Pique",
-   "Leonardo",
-   "Mile",
+   "Olha",
+   "Szymon",
+   "Josi",
+   "Dilek",
+   "Ali",
+   "Rasha",
+   "Ines",
+   "Feras",
+   "Julius",
+   "Mohammad",
+   "Yana",
+   "I-Chieh",
+   "Razieh",
+   "Valislav"
  ]
 
 export function MainLayout(){
@@ -25,11 +31,9 @@ export function MainLayout(){
       <>
         <section className="flex justify-center items-center flex-col h-dvh">
           <DisplayButton display={name} />
-          {/* {Prop wird erstellt mit dem Namen 'display' und der Wert ist der State 'name'} */}
 
           <Button pickername={picker} />
-          {/* {Prop wird erstellt mit dem Namen 'pickername' und der Wert ist die Funktion 'picker'} */}
-
+          
           <div className="Card mt-10">
             <div className="card bg-base-100 w-96 shadow-sm">
               <figure>
@@ -40,9 +44,9 @@ export function MainLayout(){
               </figure>
               <div className="card-body">
                 <h2 className="card-title">Personen</h2>
-                <p>{userList}</p>
+                
                 <div className="card-actions justify-end">
-                  {/* <button className="btn btn-primary">Buy Now</button> */}
+                 
                 </div>
               </div>
             </div>
