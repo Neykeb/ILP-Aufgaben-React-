@@ -19,7 +19,7 @@ const userList = [
   "Vitali",
 ];
 
-export function MainLayout() {
+export function MainLayout({children}) {
   const [name, setName] = useState("Was geht ab?");
 
   function picker() {

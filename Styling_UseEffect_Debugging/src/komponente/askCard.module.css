@@ -16,6 +16,7 @@
   list-style: none;
   padding: 0.5rem;
 }
-.liste li{
-    font-weight: bold;
+ul li{
+    font-weight: 400;
 }
+
