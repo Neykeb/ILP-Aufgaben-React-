@@ -1,0 +1,21 @@
+
+.wrapper {
+  background-color: rgba(72, 50, 146, 0.621);
+  
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: rgba(72, 50, 146, 0.634) 4px solid;
+  border-radius: 0.5rem;
+}
+
+.liste {
+  padding-top: 1rem;
+}
+
+.liste ul li {
+  list-style: none;
+  padding: 0.5rem;
+}
+.liste li{
+    font-weight: bold;
+}

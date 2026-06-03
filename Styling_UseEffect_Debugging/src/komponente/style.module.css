@@ -1,0 +1,17 @@
+/* Die rote Schublade für den Minus-Fall */
+.hinzufuegen {
+  background-color: #ffe5e5;
+  color: #cc0000;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #cc0000;
+}
+
+/* Die grüne Schublade für den Normal-Fall */
+.bereitsDrin {
+  background-color: #e7f8ea;
+  color: #146c2e;
+  padding: 15px;
+  border-radius: 8px;
+  border: 2px solid #146c2e;
+}
