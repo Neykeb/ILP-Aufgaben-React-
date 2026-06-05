@@ -1,53 +1,73 @@
-import { useState } from "react";
-import "./App.css";
+
 import styles from "./komponente/askCard.module.css";
+import "./App.css";
+import { useState } from "react";
 function App() {
+  
+  const kartenDaten = [
+    {
+      id: 1,
+      titel: "UI/UX-Umsetzung",
+      status: "In Bearbeitung",
+      statusClass: styles.inBearbeitung,
+      prio: "mittel",
+      cardClass: styles.mittel,
+    },
+    {
+      id: 2,
+      titel: "Backend",
+      status: "Erledigt",
+      statusClass: styles.erledigt,
+      prio: "niedrig",
+      cardClass: styles.niedrig,
+    },
+    {
+      id: 3,
+      titel: "Debugging",
+      status: "Offen",
+      statusClass: styles.offen,
+      prio: "hoch",
+      cardClass: styles.hoch,
+    },
+  ];
+  const [aufgaben, setAufgaben] = useState(kartenDaten);
+  function statusChange(index){
+    const neueAufgaben = [...aufgaben]
+    // komplett neue Liste (kopie) erstellen und sie überscheiben. 
+          
+          if (neueAufgaben[index].status === "Offen") {
+            neueAufgaben[index].status = "In Bearbeitung";
+            neueAufgaben[index].statusClass = styles.inBearbeitung;
+           } 
+           else if (neueAufgaben[index].status === "In Bearbeitung") {
+            neueAufgaben[index].status = "Erledigt";
+            neueAufgaben[index].statusClass = styles.erledigt;
+          }
+           else if (neueAufgaben[index].status === "Erledigt") {
+            neueAufgaben[index].status = "Offen";
+            neueAufgaben[index].statusClass = styles.offen;
+          }
+        setAufgaben(neueAufgaben)
+      }
+        
   return (
     <>
-      <div className="beschreibung">
-        <h1>Task Monitor</h1>
-        <p>Willkomen am Board. Hier erwarten dich coole Aufgaben.</p>
-      </div>
-
-      <section>
-        {/* Liste aus 3 Aufgaben */}
-        <div className={styles.wrapper}>
-          {" "}
-          <div className="karte">
-            <div className={styles.liste}>
-              <ul>
-                <li>UI/UX-Umsetzung</li>
-                <li>Status (In Bearbeitung)</li>
-                <li>Priotität (mittel)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          {" "}
-          <div className="karte">
-            <div className={styles.liste}>
-              <ul>
-                <li>Backend</li>
-                <li>Status (Erledigt)</li>
-                <li>Priotität (niedrig)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className={styles.wrapper}>
-          {" "}
-          <div className="karte">
-            <div className={styles.liste}>
-              <ul>
-                <li>Debugging</li>
-                <li>Status (Offen)</li>
-                <li>Priotität (hoch)</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
+    <section className={styles.wrapper}>
+      {kartenDaten.map((item, index)=>{
+        
+        return (
+          <>
+            <ul className= {styles.liste}>
+              {item.titel} 
+              <li className={item.statusClass}> {item.status} </li>
+              <li className={item.cardClass}> {item.prio} </li><button onClick={()=> statusChange(index)}>click me!</button>
+              
+            </ul>
+          </>
+        );
+      })}
+    </section>
+     
     </>
   );
 }

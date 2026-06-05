@@ -1,22 +1,56 @@
-
 .wrapper {
   background-color: rgba(72, 50, 146, 0.621);
-  
+
   padding: 1rem;
   margin-bottom: 1rem;
   border: rgba(72, 50, 146, 0.634) 4px solid;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+  
+  
 }
 
 .liste {
   padding-top: 1rem;
+
+  li {
+    list-style: none;
+    padding: 1rem;
+    font-weight: 400;
+
+    &:first-child {
+      font-weight: bold;
+    }
+  }
 }
 
-.liste ul li {
-  list-style: none;
-  padding: 0.5rem;
+.offen{
+    color: orange;
+    font-weight: bold;
 }
-ul li{
-    font-weight: 400;
+.inBearbeitung{
+    color:rgb(109, 145, 255);
+    
+}
+.erledigt{
+    color:rgb(12, 140, 7);
+}
+.niedrig{
+    background: rgb(112, 112, 112);
+    border-radius: .25rem;
+    padding: .25rem;
+}
+.mittel{
+    background: rgba(45, 94, 193, 0.854);
+    border-radius: .25rem;
+    padding: .25rem;
+}
+.hoch{
+    background: rgb(214, 20, 20);
+    border-radius: .25rem;
+    padding: .25rem;
 }
 
