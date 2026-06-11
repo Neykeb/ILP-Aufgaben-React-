@@ -15,7 +15,7 @@ focusApp (Pomodoro-Light Lern-Timer)
 
 Das Fundament für die "focusApp" steht vollständig bereit. Das Tech-Stack ist sauber aufgesetzt, sodass die Entwicklung ohne technische Hürden starten kann. Bisher wurde noch kein funktionaler Code geschrieben, da der Fokus auf der strukturellen Planung und der Bereitstellung der Design-Bibliotheken lag. Das Konzept trennt strikt das visuelle Grundgerüst von der späteren React-Logik, um Panik zu vermeiden und einen minimalistischen Einstieg zu garantieren.
 
-## Nächste Schritte
+## Nächste Schritte 
 
 - Bereinigen des Standard-Codes von Vite in der `App.jsx`.
 - Erstellen des visuellen Grundgerüsts mit Tailwind und daisyUI (statische Zeitanzeige und Buttons).
