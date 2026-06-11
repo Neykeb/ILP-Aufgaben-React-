@@ -19,4 +19,40 @@ Das Fundament für die "focusApp" steht vollständig bereit. Das Tech-Stack ist 
 
 - Bereinigen des Standard-Codes von Vite in der `App.jsx`.
 - Erstellen des visuellen Grundgerüsts mit Tailwind und daisyUI (statische Zeitanzeige und Buttons).
-- Einbau des ersten React-States (`useState`) für die Sekunden-Berechnung.
+- tanstack installiert
+- atomic pattern recherchiert und in das Projekt integriert
+------------------------------------------------------------------------
+# Tagesbericht - 10.06.2026
+
+## Projekt
+
+focusApp (Pomodoro-Light Lern-Timer)
+
+## Erledigt
+- tanstack installiert
+- atomic pattern recherchiert und in das Projekt integriert
+## Fortschritt
+
+Das Fundament für die "focusApp" steht vollständig bereit. Das Tech-Stack ist sauber aufgesetzt, sodass die Entwicklung ohne technische Hürden starten kann. Bisher wurde noch kein funktionaler Code geschrieben, da der Fokus auf der strukturellen Planung und der Bereitstellung der Design-Bibliotheken lag. Das Konzept trennt strikt das visuelle Grundgerüst von der späteren React-Logik, um Panik zu vermeiden und einen minimalistischen Einstieg zu garantieren.
+
+## Nächste Schritte 
+
+- designen der timer anzeige
+- designen der buttons
+------------------------------------------------------------------------
+# Tagesbericht - 11.06.2026
+
+## Projekt
+
+focusApp (Pomodoro-Light Lern-Timer)
+
+## Erledigt
+- designen der timer anzeige
+- designen der buttons
+## Fortschritt
+
+Das Fundament für die "focusApp" steht vollständig bereit. Das Tech-Stack ist sauber aufgesetzt, sodass die Entwicklung ohne technische Hürden starten kann. Bisher wurde noch kein funktionaler Code geschrieben, da der Fokus auf der strukturellen Planung und der Bereitstellung der Design-Bibliotheken lag. Das Konzept trennt strikt das visuelle Grundgerüst von der späteren React-Logik, um Panik zu vermeiden und einen minimalistischen Einstieg zu garantieren.
+
+## Nächste Schritte 
+
+-
