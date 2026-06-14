@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export function Navi(){
     return (
       <>
@@ -28,37 +30,26 @@ export function Navi(){
                   />
                 </svg>
               </label>
-              <button className="btn btn-ghost text-xl">daisyUI</button>
+              <button className="btn btn-ghost text-primary text-xl">
+                <Link to="/">JobMeister</Link>
+              </button>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
-                <li>
-                  <button>Item 1</button>
-                </li>
-                <li>
-                  <details>
-                    <summary>Parent</summary>
-                    <ul className="p-2 bg-base-100 w-40 z-1">
-                      <li>
-                        <button>Submenu 1</button>
-                      </li>
-                      <li>
-                        <button>Submenu 2</button>
-                      </li>
-                    </ul>
-                  </details>
-                </li>
-                <li>
-                  <button>Item 3</button>
+                <li className="flex flex-row ">
+                  <button>
+                    <Link to="/about-me">Über uns</Link>
+                  </button>
+                  <button>
+                    <Link to="/jobs" search={{ level: undefined }}>
+                      Jobs
+                    </Link>
+                  </button>
+                  <button>
+                    <Link to="/impressum">Impressum</Link>
+                  </button>
                 </li>
               </ul>
-            </div>
-            <div className="navbar-end">
-              <input
-                type="text"
-                placeholder="Search"
-                className="input input-bordered w-64 lg:w-auto"
-              />
             </div>
           </div>
 
@@ -69,17 +60,6 @@ export function Navi(){
               </li>
               <li>
                 <button>Parent</button>
-                <ul>
-                  <li>
-                    <button>Submenu 1</button>
-                  </li>
-                  <li>
-                    <button>Submenu 2</button>
-                  </li>
-                </ul>
-              </li>
-              <li>
-                <button>Item 3</button>
               </li>
             </ul>
           </div>

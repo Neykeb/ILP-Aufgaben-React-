@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-import { Navi } from "../components/templates/navi";
-
+import { Navi } from "../components/organisms/navi";
+import { Footer } from "../components/organisms/footer";
 export const Route = createRootRoute({
   component: RootComponent,
 });
@@ -11,6 +11,7 @@ function RootComponent() {
     <React.Fragment>
       <Navi />
       <Outlet />
+      <Footer />
     </React.Fragment>
   );
 }
