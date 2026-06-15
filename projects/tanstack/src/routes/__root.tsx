@@ -10,6 +10,10 @@ function RootComponent() {
   return (
     <React.Fragment>
       <Navi />
+      
+      {/* Outlet ist der Platz, an dem die aktuelle Seite eingesetzt wird.
+          Wenn der Nutzer /jobs öffnet, erscheint hier die Jobs-Seite.
+          Wenn der Nutzer /about-me öffnet, erscheint hier die About-Seite. */}
       <Outlet />
       <Footer />
     </React.Fragment>

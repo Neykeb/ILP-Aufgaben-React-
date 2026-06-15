@@ -5,6 +5,7 @@ export const Route = createFileRoute('/')({
 })
 
 function RouteComponent() {
+  // zeigt alle Jobs an
   return (
     <main className="min-h-screen bg-base-100">
       {/* Hero Section */}
@@ -21,10 +22,6 @@ function RouteComponent() {
               über Unternehmen, Anforderungen und Karrieremöglichkeiten an einem
               zentralen Ort.
             </p>
-
-            <button className="btn btn-primary btn-lg">
-              Jetzt Jobs entdecken
-            </button>
           </div>
         </div>
       </section>

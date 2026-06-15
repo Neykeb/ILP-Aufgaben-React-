@@ -30,16 +30,13 @@ export function Navi(){
                   />
                 </svg>
               </label>
-              <button className="btn btn-ghost text-primary text-xl">
+              <div className="btn btn-ghost text-primary text-xl">
                 <Link to="/">JobMeister</Link>
-              </button>
+              </div>
             </div>
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">
                 <li className="flex flex-row ">
-                  <button>
-                    <Link to="/about-me">Über uns</Link>
-                  </button>
                   <button>
                     <Link to="/jobs" search={{ level: undefined }}>
                       Jobs
@@ -47,6 +44,9 @@ export function Navi(){
                   </button>
                   <button>
                     <Link to="/impressum">Impressum</Link>
+                  </button>
+                  <button>
+                    <Link to="/about-me">Über uns</Link>
                   </button>
                 </li>
               </ul>
@@ -56,10 +56,17 @@ export function Navi(){
           <div className="collapse-content lg:hidden z-1">
             <ul className="menu">
               <li>
-                <button>Item 1</button>
-              </li>
-              <li>
-                <button>Parent</button>
+                <button>
+                  <Link to="/jobs" search={{ level: undefined }}>
+                    Jobs
+                  </Link>
+                </button>
+                <button>
+                  <Link to="/about-me">Über uns</Link>
+                </button>
+                <button>
+                  <Link to="/impressum">Impressum</Link>
+                </button>
               </li>
             </ul>
           </div>
