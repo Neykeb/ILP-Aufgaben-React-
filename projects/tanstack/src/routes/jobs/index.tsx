@@ -3,6 +3,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { JobCard } from "../../components/molecules/jobCard";
 import { jobs } from "../../data/jobs";
 import { Link } from "@tanstack/react-router";
+import { SignedIn, SignedOut, RedirectToSignIn } from "@clerk/clerk-react";
+
 export const Route = createFileRoute("/jobs/")({
   // validateSearch beschreibt, welche Search Params diese Route benutzen darf.
   // Search Params sind Werte nach dem Fragezeichen in der URL.
@@ -25,6 +27,15 @@ function RouteComponent() {
   
   return (
     <main className="min-h-screen bg-base-100 px-6 py-12">
+      
+      <>
+        <SignedOut>
+          <RedirectToSignIn />
+        </SignedOut>
+
+        <SignedIn></SignedIn>
+      </>
+      
       <section className="mx-auto grid max-w-6xl gap-6 lg:grid-cols-[250px_1fr]">
         <aside className="rounded-2xl bg-base-200 p-6 shadow-md">
           <h2 className="mb-4 text-xl font-bold">Job Filter</h2>
@@ -39,7 +50,9 @@ function RouteComponent() {
 
         <div>
           <h1 className="mb-6 text-4xl font-bold">
-            <Link to="/jobs" search={{level:undefined}}>Aktuelle Stellenangebote</Link>
+            <Link to="/jobs" search={{ level: undefined }}>
+              Aktuelle Stellenangebote
+            </Link>
           </h1>
 
           <div className="grid gap-6 md:grid-cols-2">
