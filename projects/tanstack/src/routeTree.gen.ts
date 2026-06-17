@@ -9,20 +9,20 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ImpressumRouteImport } from './routes/impressum'
 import { Route as AboutMeRouteImport } from './routes/about-me'
+import { Route as ProtectedRouteImport } from './routes/_protected'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as JobsIndexRouteImport } from './routes/jobs/index'
 import { Route as JobsJobIdRouteImport } from './routes/jobs/$jobId'
+import { Route as ProtectedImpressumRouteImport } from './routes/_protected/impressum'
 
-const ImpressumRoute = ImpressumRouteImport.update({
-  id: '/impressum',
-  path: '/impressum',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const AboutMeRoute = AboutMeRouteImport.update({
   id: '/about-me',
   path: '/about-me',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProtectedRoute = ProtectedRouteImport.update({
+  id: '/_protected',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -40,26 +40,32 @@ const JobsJobIdRoute = JobsJobIdRouteImport.update({
   path: '/jobs/$jobId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProtectedImpressumRoute = ProtectedImpressumRouteImport.update({
+  id: '/impressum',
+  path: '/impressum',
+  getParentRoute: () => ProtectedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-me': typeof AboutMeRoute
-  '/impressum': typeof ImpressumRoute
+  '/impressum': typeof ProtectedImpressumRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
   '/jobs/': typeof JobsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-me': typeof AboutMeRoute
-  '/impressum': typeof ImpressumRoute
+  '/impressum': typeof ProtectedImpressumRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
   '/jobs': typeof JobsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_protected': typeof ProtectedRouteWithChildren
   '/about-me': typeof AboutMeRoute
-  '/impressum': typeof ImpressumRoute
+  '/_protected/impressum': typeof ProtectedImpressumRoute
   '/jobs/$jobId': typeof JobsJobIdRoute
   '/jobs/': typeof JobsIndexRoute
 }
@@ -68,31 +74,38 @@ export interface FileRouteTypes {
   fullPaths: '/' | '/about-me' | '/impressum' | '/jobs/$jobId' | '/jobs/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/about-me' | '/impressum' | '/jobs/$jobId' | '/jobs'
-  id: '__root__' | '/' | '/about-me' | '/impressum' | '/jobs/$jobId' | '/jobs/'
+  id:
+    | '__root__'
+    | '/'
+    | '/_protected'
+    | '/about-me'
+    | '/_protected/impressum'
+    | '/jobs/$jobId'
+    | '/jobs/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ProtectedRoute: typeof ProtectedRouteWithChildren
   AboutMeRoute: typeof AboutMeRoute
-  ImpressumRoute: typeof ImpressumRoute
   JobsJobIdRoute: typeof JobsJobIdRoute
   JobsIndexRoute: typeof JobsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/impressum': {
-      id: '/impressum'
-      path: '/impressum'
-      fullPath: '/impressum'
-      preLoaderRoute: typeof ImpressumRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/about-me': {
       id: '/about-me'
       path: '/about-me'
       fullPath: '/about-me'
       preLoaderRoute: typeof AboutMeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_protected': {
+      id: '/_protected'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof ProtectedRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -116,13 +129,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof JobsJobIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/_protected/impressum': {
+      id: '/_protected/impressum'
+      path: '/impressum'
+      fullPath: '/impressum'
+      preLoaderRoute: typeof ProtectedImpressumRouteImport
+      parentRoute: typeof ProtectedRoute
+    }
   }
 }
 
+interface ProtectedRouteChildren {
+  ProtectedImpressumRoute: typeof ProtectedImpressumRoute
+}
+
+const ProtectedRouteChildren: ProtectedRouteChildren = {
+  ProtectedImpressumRoute: ProtectedImpressumRoute,
+}
+
+const ProtectedRouteWithChildren = ProtectedRoute._addFileChildren(
+  ProtectedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ProtectedRoute: ProtectedRouteWithChildren,
   AboutMeRoute: AboutMeRoute,
-  ImpressumRoute: ImpressumRoute,
   JobsJobIdRoute: JobsJobIdRoute,
   JobsIndexRoute: JobsIndexRoute,
 }

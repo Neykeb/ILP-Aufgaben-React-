@@ -45,13 +45,17 @@ export function Navi() {
 
         <div className="navbar-end">
           <SignedOut>
+          {/* zeigt den Inhalt nur, wenn der User NICHT eingeloggt ist. */}
             <SignInButton mode="modal">
               <button className="btn btn-primary">Login</button>
             </SignInButton>
           </SignedOut>
 
           <SignedIn>
+             {/* zeigt den Inhalt nur, wenn der User eingeloggt ist. */}
             <UserButton />
+             {/* Der UserButton ist dieser kleine Account-Kreis von Clerk. Darüber
+            kann man Profil, Logout usw. öffnen. */}
           </SignedIn>
         </div>
       </div>

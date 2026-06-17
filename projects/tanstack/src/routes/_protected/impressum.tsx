@@ -1,10 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/impressum')({
-  component: RouteComponent,
+export const Route = createFileRoute('/_protected/impressum')({
+  component: ImpressumPage,
 })
 
-function RouteComponent() {
+function ImpressumPage() {
   return (
     <>
       <main className="min-h-screen bg-base-100 px-6 py-12">
